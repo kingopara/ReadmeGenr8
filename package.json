@@ -1,0 +1,22 @@
+{
+  "name": "readmegenr8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingopara/ReadmeGenr8.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingopara/ReadmeGenr8/issues"
+  },
+  "homepage": "https://github.com/kingopara/ReadmeGenr8#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1"
+  }
+}
