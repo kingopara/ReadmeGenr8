@@ -2,14 +2,16 @@
 const inquirer = require('inquirer');
 
 const fs = require('fs');
-const generate = require('./src/generateMarkdown.js');
+const generateMarkdown = require('./src/generateMarkdown.js');
+// const profileDataArgs = process.argv.slice(1);
+// const [data] = profileDataArgs;
 // TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer.prompt([
             {
                 type: 'input',
-                name: 'name',
-                message: 'what is the title of your repository?'
+                name: 'title',
+                message: 'what is the title of your project?'
             },
             {
                 type: 'input',
@@ -25,6 +27,11 @@ const questions = () => {
                 type: 'input',
                 name: 'usage',
                 message: 'what is it used for?'
+            },
+            {
+                type: 'input',
+                name: 'badges',
+                message: 'badges'
             },
             {
                 type: 'input',
@@ -44,7 +51,7 @@ const questions = () => {
             },
             {
                 type: 'input',
-                name: 'name',
+                name: 'github',
                 message: 'what is your github username?'
             },
             {
@@ -57,19 +64,31 @@ const questions = () => {
                 name: 'languages',
                 message: 'what languages do you know?',
                 choices: ['HTML', 'CSS', 'JavaScript']
+            },
+            {
+                type: 'input',
+                name: 'credit',
+                message: 'give credit to who credit is due'
             }
         ]);
     };
 
-questions().then(answers => console.log(answers))
+questions().then(data => {
+    const pageReadme = generateMarkdown(data);
+
+    fs.writeFile('./README2.md', pageReadme, err => {
+        if (err) throw new Error (err);
+    
+    console.log(data)
+    });
+})
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
 
-}
+// }
+// // TODO: Create a function to initialize app
+// function init() {}
 
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
