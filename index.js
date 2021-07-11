@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 const generateMarkdown = require('./src/generateMarkdown.js');
+const {writeToFile} = require('./utils/generateReadme.js');
 // const profileDataArgs = process.argv.slice(1);
 // const [data] = profileDataArgs;
 // TODO: Create an array of questions for user input
@@ -29,14 +30,20 @@ const questions = () => {
                 message: 'what is it used for?'
             },
             {
-                type: 'input',
+                type: 'checkbox',
                 name: 'badges',
-                message: 'badges'
+                message: 'badges:',
+                choices: [
+                    '![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)',
+                ]
             },
             {
-                type: 'input',
+                type: 'checkbox',
                 name: 'contribution',
-                message: 'what are the contribution guidelines?'
+                message: 'what are the contribution guidelines?',
+                choices: [
+                    '![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)'
+                ]
             },
             {
                 type: 'input',
@@ -47,7 +54,10 @@ const questions = () => {
                 type: 'checkbox',
                 name: 'licenses',
                 message: 'what licenses would you add?',
-                choices: ['APACHE', 'BSD 3', 'BSD 2', 'MIT', 'MOZILLA', 'ECLIPSE',]
+                choices: [
+                    '[APACHE](http://www.apache.org/licenses/LICENSE-2.0)', 
+                    '[MIT](https://choosealicense.com/mit/)',
+                ]
             },
             {
                 type: 'input',
@@ -57,7 +67,7 @@ const questions = () => {
             {
                 type: 'input',
                 name: 'email',
-                message: 'what is your email address?'
+                message: 'enter your gmail username?'
             },
             {
                 type: 'checkbox',
@@ -68,21 +78,20 @@ const questions = () => {
             {
                 type: 'input',
                 name: 'credit',
-                message: 'give credit to who credit is due'
+                message: 'Credit?'
             }
         ]);
     };
 
 questions().then(data => {
-    const pageReadme = generateMarkdown(data);
-
-    fs.writeFile('./README2.md', pageReadme, err => {
-        if (err) throw new Error (err);
-    
-    console.log(data)
-    });
+    return generateMarkdown(data);
 })
-
+.then(readMe => {
+    return writeToFile(readMe);
+})
+.catch(err => {
+    console.log(err);
+});
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {
 

@@ -55,7 +55,7 @@ const generateMarkdown = (data) => {
   (https://github.com/${data.github})
   ## questions : 
   [email]
-  (https://${data.email})
+  (https://${data.email}@gmail.com)
 
 `;
 }
