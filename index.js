@@ -21,8 +21,14 @@ const questions = () => {
             },
             {
                 type: 'confirm',
-                name: 'feature',
-                message: 'is it installable?'
+                name: 'install',
+                message: 'is it installable?',
+                default: 'false'
+            },
+            {
+                type: 'input',
+                name: 'installInfo',
+                message: 'please provide a step by step process for installation'
             },
             {
                 type: 'input',
@@ -42,7 +48,7 @@ const questions = () => {
                 name: 'contribution',
                 message: 'what are the contribution guidelines?',
                 choices: [
-                    '![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)'
+                    '![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)]'
                 ]
             },
             {

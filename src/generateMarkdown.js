@@ -27,7 +27,8 @@ const generateMarkdown = (data) => {
   * [License](#license)
 
   ## installation
-  ${data.feature}
+  ${data.install}
+  ${data.installInfo}
 
   ## languages
   ${data.languages}

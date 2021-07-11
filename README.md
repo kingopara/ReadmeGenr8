@@ -12,7 +12,7 @@ This is an app that lets a user generate a professional README file dynamically 
 * [License](#license)
 * [Badges](#Badges)
 
-[link to video](https://drive.google.com/file/d/18zonYW-Gj8jOxCWTVHaMmcnbM7gYcvkZ/view) 
+[link to a walk-through video of how the app works](https://drive.google.com/file/d/18zonYW-Gj8jOxCWTVHaMmcnbM7gYcvkZ/view) 
 
 ## Preview
 ![Preview](assets/images/readmepic.png)
@@ -21,7 +21,7 @@ This is an app that lets a user generate a professional README file dynamically 
 * Node.js
 
 ## Installation
-To install the app on your device, you need to 
+To install the app on your device, you need to downlaod packages and node.js into your device.
 
 ## Usage
 This can only be generated using prompts generated in the command line.
